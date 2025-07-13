@@ -63,6 +63,10 @@ button {
   background-color: var(--primary-color);
   color: var(--base-color);
 }
+
+nav li {
+  padding-bottom: 1em;
+}
 .header {
   grid-area: header;
   display: grid;
@@ -177,6 +181,10 @@ button {
 
 .icon {
   width: 16px;
+}
+
+.icon.large {
+  width: 32px;
 }
 
 .glance {
