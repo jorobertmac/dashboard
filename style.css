@@ -1,3 +1,13 @@
+:root {
+  /* COLORS */
+  --primary-color: #2E4057;
+  --secondary-color: #e2cc06;
+  --base-color: #cddfec;
+  --text-color: #212529;
+  --accent-color: #468C98;
+  --alert-color: #DC3545;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -6,33 +16,191 @@
   list-style-type: none;
 }
 
+button {
+  background-color: var(--accent-color);
+}
+
 .container {
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  /* grid-template-areas: 
+    "nav search        search        search        profile"
+    "nav greeting      greeting      engagement    engagement"
+    "nav coursesHeader coursesHeader coursesHeader atAGlanceHeader"
+    "nav courses       courses       courses       atAGlance"
+    "nav courses       courses       courses       atAGlance"
+    
+    "nav courses       courses       courses       atAGlance"
+    "nav courses       courses       courses       atAGlance"
+    "nav courses       courses       courses       atAGlance"
+    "nav courses       courses       courses       communityConnectionsHeader"
+    "nav courses       courses       courses       communityConnections"
+
+    "nav courses       courses       courses       communityConnections"
+    "nav courses       courses       courses       communityConnections"
+    "nav courses       courses       courses       communityConnections"
+    "nav courses       courses       courses       communityConnections"; */
+
+  grid-template: 
+    "nav header" 2fr 
+    "nav main  " 6fr
+    "nav main  " 5fr
+    "nav ....  " 1fr / 1fr 4fr;
+
+  gap: 10px;
+
+  height: 100vh;
+  background-color: var(--accent-color);
+  color: var(--text-color);
 }
 
 .nav {
-  grid-row: span 2;
+  grid-area: nav;
+  max-width: 350px;
+
   display: grid;
-  align-items: space-evenly;
+  padding: 1em;
+  
+  background-color: var(--primary-color);
+  color: var(--base-color);
+}
+.header {
+  grid-area: header;
+  display: grid;
+  grid-template: 
+  "search profile" 1fr
+  "greeting engagement" 1.2fr / 2.5fr 1.5fr
+  ;
 }
 
-.header {
+.search {
+  grid-area: search;
+
+  padding: 1em;
+  background-color: var(--base-color);
+}
+
+.profile {
+  grid-area: profile;
+  
   display: grid;
-  grid-template-columns: 3fr 2fr;
+  grid-template-columns: 1fr 1fr 3fr;
+
+  padding: 1em;
+  background-color: var(--base-color);
+}
+.greeting {
+  grid-area: greeting;
+
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+
+  padding: 1em;
+  background-color: var(--base-color);
+}
+.engagement {
+  grid-area: engagement;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2em;
+  justify-content: right;
+
+  padding: 1em;
+  background-color: var(--base-color);
 }
 
 .main {
+  grid-area: main;
+
   display: grid;
-  grid-template: 1fr 1fr / 3fr 1fr;
+  grid-template: 
+  "courses glance" 
+  "courses connect";
+  grid-template-columns: 3fr 1fr;
+  background-color: var(--base-color);
 }
 
-.cards {
-  grid-row: span 2;
+.courses {
+  grid-area: courses;
+
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template: 
+  "coursesHeader coursesHeader coursesHeader" 1fr
+  "courseBody courseBody courseBody " 10fr
+  ;
 }
 
-.cardsTitle {
-  grid-column: 1 / -1;
+.coursesHeader {
+  grid-area: coursesHeader;
+
+}
+
+.courseBody {
+  grid-area: courseBody;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, .5fr));
+}
+
+.course {
+  display: grid;
+  background-color: var(--secondary-color);
+  border-color: var(--primary-color);
+  border-width: 3px;
+  border-style: ridge;
+  border-top-left-radius: 0;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 3px;
+  padding: 5px;
+  margin: 5px;
+
+  max-width: 350px;
+  max-height: 200px;
+}
+
+.courseEngagement {
+  display: flex;
+  gap: 2em;
+  justify-content: right;
+  margin-right: 1em;
+  max-height: 2em;
+}
+
+.courseEngagement button {
+  border: none;
+  background-color: inherit;
+}
+
+.courseEngagement button:hover{
+  background-color: #DC3545;
+}
+
+.icon {
+  width: 16px;
+}
+
+.glance {
+  grid-area: glance;
+  display: grid;
+  border: 1px solid black;
+  padding: 1em;
+}
+
+.connect {
+  grid-area: connect;
+  display: grid;
+  border: 1px solid black;
+  padding: 1em;
+}
+
+.connect div {
+  display: flex;
+  gap: 1em;
+}
+
+.avatar.small {
+  width: 3em;
+}
+.avatar.large {
+  width: 5em;
 }
