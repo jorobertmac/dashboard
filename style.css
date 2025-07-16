@@ -87,11 +87,13 @@ nav li {
 .profile {
   grid-area: profile;
   
-  display: grid;
-  grid-template-columns: 1fr 1fr 3fr;
+  display: flex;
 
   padding: 1em;
   background-color: var(--base-color);
+
+  align-items: center;
+  justify-content: space-evenly;
 }
 .greeting {
   grid-area: greeting;
