@@ -1,6 +1,7 @@
 :root {
   /* COLORS */
   --primary-color: #2E4057;
+  --primary-shade-color: #4d6d96;
   --secondary-color: #e2cc06;
   --base-color: #cddfec;
   --text-color: #212529;
@@ -17,30 +18,13 @@
 }
 
 button {
-  background-color: var(--accent-color);
+  background-color: var(--primary-color);
   color: inherit;
 }
 
 .container {
   display: grid;
-  /* grid-template-areas: 
-    "nav search        search        search        profile"
-    "nav greeting      greeting      engagement    engagement"
-    "nav coursesHeader coursesHeader coursesHeader atAGlanceHeader"
-    "nav courses       courses       courses       atAGlance"
-    "nav courses       courses       courses       atAGlance"
-    
-    "nav courses       courses       courses       atAGlance"
-    "nav courses       courses       courses       atAGlance"
-    "nav courses       courses       courses       atAGlance"
-    "nav courses       courses       courses       communityConnectionsHeader"
-    "nav courses       courses       courses       communityConnections"
-
-    "nav courses       courses       courses       communityConnections"
-    "nav courses       courses       courses       communityConnections"
-    "nav courses       courses       courses       communityConnections"
-    "nav courses       courses       courses       communityConnections"; */
-
+  
   grid-template: 
     "nav header" 2fr 
     "nav main  " 6fr
@@ -68,6 +52,13 @@ button {
 nav li {
   padding-bottom: 1em;
 }
+
+nav li:hover {
+  text-decoration-line: underline;
+  font-weight: bold;
+  cursor: pointer;
+}
+
 .header {
   grid-area: header;
   display: grid;
@@ -80,8 +71,32 @@ nav li {
 .search {
   grid-area: search;
 
+  display: grid;
+
   padding: 1em;
   background-color: var(--base-color);
+
+
+  align-items: center;
+}
+
+.search input {
+  border: none;
+  border-radius: 1em;
+  height: 2em;
+  padding: 1em;
+  background-color: var(--primary-color);
+  color: var(--base-color);
+}
+.search input:hover {
+  background-color: var(--primary-shade-color);
+}
+.search input:focus {
+  background-color: var(--primary-shade-color);
+}
+
+.search input::placeholder {
+  color: var(--base-color);
 }
 
 .profile {
@@ -111,11 +126,26 @@ nav li {
   grid-template-columns: repeat(3, 1fr);
   gap: 2em;
   justify-content: right;
+  align-items: center;
 
   padding: 1em;
   background-color: var(--base-color);
 }
 
+
+.engagement button {
+  border: none;
+  border-radius: 1em;
+  height: 2.5em;
+  color: var(--base-color);
+}
+
+
+.engagement button:hover {
+  font-weight: bold;
+  background-color: var(--primary-shade-color);
+  cursor: pointer;
+}
 .main {
   grid-area: main;
 
@@ -178,9 +208,6 @@ nav li {
   background-color: inherit;
 }
 
-.courseEngagement button:hover{
-  background-color: #DC3545;
-}
 
 .icon {
   width: 16px;
@@ -188,6 +215,10 @@ nav li {
 
 .icon.large {
   width: 32px;
+}
+
+.icon:hover {
+  cursor: pointer;
 }
 
 .glance {
@@ -214,6 +245,10 @@ nav li {
 }
 .avatar.large {
   width: 5em;
+}
+
+.avatar:hover {
+  cursor: pointer;
 }
 
 .contact {
