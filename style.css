@@ -27,8 +27,8 @@ button {
   
   grid-template: 
     "nav header" 2fr 
-    "nav main  " 6fr
-    "nav main  " 5fr
+    "nav main  " min-content
+    "nav main  " min-content
     "nav ....  " 1fr / 1fr 4fr;
 
   gap: 10px;
