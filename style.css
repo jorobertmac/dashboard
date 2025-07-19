@@ -228,6 +228,21 @@ nav li:hover {
   padding: 1em;
 }
 
+.glanceHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.glance p {
+  margin-top: .5em;
+}
+
+.glance p:hover {
+  text-decoration-line: underline;
+  cursor: pointer;
+}
+
 .connect {
   grid-area: connect;
   display: grid;
